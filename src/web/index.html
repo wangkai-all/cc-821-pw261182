@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>再保条款顺序与额度恢复实验室</title>
+    <meta name="description" content="虚构损失事件下，逐笔核对免赔、单层/多层限额、年度额度、恢复规则与事件顺序影响。" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-row">
+        <div>
+          <h1>再保条款顺序与额度恢复实验室</h1>
+          <p class="subtitle">
+            用虚构事件逐笔重放免赔、单次限额、年度限额、有限次数恢复及多层分摊；补损/冲回回到原事件，
+            顺序变化后重算后续额度，并保留不可变结算版本。
+          </p>
+          <div class="disclaimer">⚠️ 全部主体与事件均为虚构，仅用于条款逻辑演示，不构成真实保险、再保险或精算建议。</div>
+        </div>
+        <div class="header-controls">
+          <label class="field" style="min-width: 260px">
+            载入样例
+            <select id="sample-select" aria-label="选择样例"></select>
+          </label>
+          <button class="btn" id="reset-sample" type="button">恢复当前样例</button>
+          <button class="btn" id="export-version" type="button">导出当前版本 JSON</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <nav class="tabs" role="tablist" aria-label="应用分区">
+        <button class="tab-button" data-tab="compare" role="tab">① 顺序比较</button>
+        <button class="tab-button" data-tab="edit" role="tab">② 条款 / 补损编辑</button>
+        <button class="tab-button" data-tab="capacity" role="tab">③ 事件前后额度</button>
+        <button class="tab-button" data-tab="ledger" role="tab">④ 逐笔流水核对</button>
+        <button class="tab-button" data-tab="versions" role="tab">⑤ 结算版本与说明</button>
+      </nav>
+      <div id="global-notice"></div>
+      <div id="app"></div>
+      <p class="footer-note">
+        金额内部采用整数“分”定点结算，比例采用整数 bps；尾差按“最大余数法，余数相同按条款/列表顺序”分配。
+        手算流水见仓库 <code>docs/hand-check.md</code>，情景结论见 <code>docs/scenario-analysis.md</code>。
+      </p>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

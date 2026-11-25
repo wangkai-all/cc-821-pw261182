@@ -1,0 +1,15 @@
+{
+  "name": "reinsurance-order-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "虚构再保条款逐笔结算、额度恢复与事件顺序比较工作台",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "start": "node scripts/serve.mjs",
+    "check": "node scripts/check-syntax.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
